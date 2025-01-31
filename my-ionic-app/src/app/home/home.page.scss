@@ -1,0 +1,63 @@
+#container {
+  text-align: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8c8c8c;
+
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+ion-button {
+  margin: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ion-icon {
+    margin-right: 0.5rem;
+    font-size: 1.2rem; /* Adjust size if needed */
+  }
+}
+
+.timer-display {
+  font-size: 4rem; /* Adjust the size as needed */
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Take up the full height of the parent */
+}
+
+.play-pause-button {
+  --padding-start: 0px; /* Remove any default padding on the left */
+  --padding-end: 0px; /* Remove any default padding on the right */
+  --padding-top: 0px; /* Remove any default padding on top */
+  --padding-bottom: 0px; /* Remove any default padding on bottom */
+  width: 100px; /* Set the button's width */
+  height: 100px; /* Set the button's height */
+  border-radius: 50%; /* Makes the button circular */
+  display: flex;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+  font-size: 2rem; /* Ensure the icon is large */
+}

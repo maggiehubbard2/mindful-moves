@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Mindful Moves
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Timer Card -->
+  <ion-card class="timer-card">
+    <ion-card-header>
+      <ion-card-title class="timer-display ion-text-center">
+        {{ timerDisplay }}
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content class="ion-text-center">
+      <p>{{ timerService.isWorking$.value ? 'Work' : 'Rest' }}</p>
+      <p>Round: {{ timerService.currentRound$.value }}/{{ timerService.rounds }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Controls Card -->
+  <ion-card class="controls-card">
+    <ion-card-content class="ion-text-center">
+      <!-- Play/Pause Button -->
+      <ion-button
+      class="play-pause-button"
+      (click)="toggleTimer()"
+      shape="round"
+      expand="full"
+    >
+      <ion-icon [name]="timerService.isRunning$.value ? 'pause' : 'play'" size="large"></ion-icon>
+    </ion-button>
+    
+
+      <!-- Reset Button -->
+      <ion-button expand="block" (click)="timerService.resetTimer()">
+        <ion-icon name="refresh" slot="start"></ion-icon>
+        Reset
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

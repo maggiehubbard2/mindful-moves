@@ -1,0 +1,26 @@
+<!-- src/app/settings/settings.page.html -->
+<ion-header>
+    <ion-toolbar>
+      <ion-title>Settings</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content class="ion-padding">
+    <ion-item>
+      <ion-label>Work Duration (seconds)</ion-label>
+      <ion-input type="number" [(ngModel)]="timerService.workDuration"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>Rest Duration (seconds)</ion-label>
+      <ion-input type="number" [(ngModel)]="timerService.restDuration"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>Number of Rounds</ion-label>
+      <ion-input type="number" [(ngModel)]="timerService.rounds"></ion-input>
+    </ion-item>
+  
+    <ion-button expand="block" (click)="saveSettings()">Save Settings</ion-button>
+  </ion-content>
+  

@@ -1,41 +1,35 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Mindful Moves
-    </ion-title>
+    <ion-title class="text-center">Mindful Moves</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
   <!-- Timer Card -->
-  <ion-card class="timer-card">
+  <ion-card class="timer-card text-center mx-auto">
     <ion-card-header>
-      <ion-card-title class="timer-display ion-text-center">
+      <ion-card-title class="timer-display">
         {{ timerDisplay }}
       </ion-card-title>
     </ion-card-header>
-    <ion-card-content class="ion-text-center">
-      <p>{{ timerService.isWorking$.value ? 'Work' : 'Rest' }}</p>
-      <p>Round: {{ timerService.currentRound$.value }}/{{ timerService.rounds }}</p>
+    <ion-card-content>
+      <p class="status-text">{{ timerService.isWorking$.value ? 'Work' : 'Rest' }}</p>
+      <p class="round-text">Round: {{ timerService.currentRound$.value }}/{{ timerService.rounds }}</p>
     </ion-card-content>
   </ion-card>
 
   <!-- Controls Card -->
-  <ion-card class="controls-card">
-    <ion-card-content class="ion-text-center">
-      <!-- Play/Pause Button -->
-      <ion-button
-      class="play-pause-button"
-      (click)="toggleTimer()"
-      shape="round"
-      expand="full"
-    >
-      <ion-icon [name]="timerService.isRunning$.value ? 'pause' : 'play'" size="large"></ion-icon>
-    </ion-button>
-    
+  <ion-card class="controls-card text-center mx-auto">
+    <ion-card-content>
+      <div class="button-container">
+        <!-- Play/Pause Button -->
+        <ion-button class="play-pause-button" (click)="toggleTimer()" shape="round">
+          <ion-icon [name]="timerService.isRunning$.value ? 'pause' : 'play'" size="large"></ion-icon>
+        </ion-button>
+      </div>
 
       <!-- Reset Button -->
-      <ion-button expand="block" (click)="timerService.resetTimer()">
+      <ion-button expand="block" class="mt-3 reset-button" (click)="timerService.resetTimer()">
         <ion-icon name="refresh" slot="start"></ion-icon>
         Reset
       </ion-button>

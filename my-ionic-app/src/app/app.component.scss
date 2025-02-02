@@ -1,0 +1,12 @@
+#main-content {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Ensure it takes the full height of the screen */
+  }
+
+  ion-router-outlet {
+    flex-grow: 1; /* Allows router outlet to expand */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }

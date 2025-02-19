@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, MenuController } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -11,19 +11,12 @@ import { CommonModule } from '@angular/common';
   imports: [IonicModule, CommonModule], // Import IonicModule
 })
 export class MenuComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private menuCtrl: MenuController) {}
 
-  goToHome() {
-    this.router.navigate(['/home']);
+  goToPage(pageName: string){
+    this.router.navigate([pageName]);
+    this.menuCtrl.close();
   }
 
-  goToSettings() {
-    this.router.navigate(['/settings']);
-  }
 
-  goToWorkouts(){
-    this.router.navigate(['/workouts']);
-  }
-
-  
 }

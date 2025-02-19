@@ -13,6 +13,10 @@ const routes: Routes = [
     path: 'settings',
     component: SettingsPage,
   },
+  {
+    path: 'workouts',
+    loadChildren: () => import('./pages/workouts/workouts.module').then( m => m.WorkoutsPageModule)
+  },
 ];
 
 @NgModule({

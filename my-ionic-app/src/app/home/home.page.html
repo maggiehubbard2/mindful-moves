@@ -7,12 +7,12 @@
 <ion-content class="ion-padding">
   <!-- Timer Card -->
   <ion-card class="timer-card text-center mx-auto">
-    <ion-card-header>
+    <ion-card-header class="timer-card-header">
       <ion-card-title class="timer-display">
         {{ timerDisplay }}
       </ion-card-title>
     </ion-card-header>
-    <ion-card-content>
+    <ion-card-content class="timer-card-content">
       <p class="status-text">{{ timerService.isWorking$.value ? 'Work' : 'Rest' }}</p>
       <p class="round-text">Round: {{ timerService.currentRound$.value }}/{{ timerService.rounds }}</p>
     </ion-card-content>
@@ -20,19 +20,39 @@
 
   <!-- Controls Card -->
   <ion-card class="controls-card text-center mx-auto">
-    <ion-card-content>
-      <div class="button-container">
-        <!-- Play/Pause Button -->
+    <ion-card-content class="controls-card-content">
+
+      <div class="button-container" (click)="toggleTimer()">
+        <img [src]="timerService.isRunning$.value ? 'assets/pauseButton.png' : 'assets/playButton.png'" 
+             alt="Play/Pause Button" 
+             class="play-pause-img"/>
+      </div>
+      
+      
+      <!-- <div class="button-container">
         <ion-button class="play-pause-button" (click)="toggleTimer()" shape="round">
           <ion-icon [name]="timerService.isRunning$.value ? 'pause' : 'play'" size="large"></ion-icon>
         </ion-button>
-      </div>
+      </div> -->
 
       <!-- Reset Button -->
-      <ion-button expand="block" class="mt-3 reset-button" (click)="timerService.resetTimer()">
+      <ion-button expand="block" color="secondary" class="mt-3 home-page-button" (click)="timerService.resetTimer()">
         <ion-icon name="refresh" slot="start"></ion-icon>
         Reset
+      </ion-button>
+
+      <!-- My Workouts Button -->
+      <ion-button expand="block" color="tertiary" class="mt-3 home-page-button" (click)="workoutService.goToWorkoutList()">
+        <ion-icon name="barbell-outline" slot="start"></ion-icon>
+        My Workouts
+      </ion-button>
+
+      <!-- Add New Workout Button -->
+      <ion-button expand="block" color="primary" class="mt-3 home-page-button" (click)="workoutService.goToAddWorkout()">
+        <ion-icon name="add-circle-outline" slot="start"></ion-icon>
+        Add New
       </ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>
+

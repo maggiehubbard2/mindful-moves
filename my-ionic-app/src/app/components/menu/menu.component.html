@@ -1,28 +1,31 @@
-<ion-menu contentId="main-content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content class="ion-padding">
-    <ion-list>
-      <!-- Home Page Link -->
-      <ion-item button (click)="goToPage('home')">
-        <ion-icon name="home-outline" slot="start"></ion-icon>
-        Home
-      </ion-item>
+<ion-content id="main-content">
+  <!-- Your main content goes here -->
+</ion-content>
 
-      <!-- Settings Page Link -->
-      <ion-item button (click)="goToPage('settings')">
-        <ion-icon name="settings-outline" slot="start"></ion-icon>
-        Settings
-      </ion-item>
+<ion-footer class="bottom-footer">
+  <ion-toolbar class="toolbar">
+    <!-- Heart icon for visual appeal -->
+    <ion-buttons slot="start">
+      <ion-button (click)="presentPositiveMessage()">
+        <ion-icon name="heart"></ion-icon>
+      </ion-button>      
+    </ion-buttons> 
 
-          <!-- Workouts Page Link -->
-          <ion-item button (click)="goToPage('workouts')">
-            <ion-icon name="barbell-outline" slot="start"></ion-icon>
-            Workouts
-          </ion-item>
-    </ion-list>
-  </ion-content>
-</ion-menu>
+    <!-- Home button in the center -->
+    <ion-buttons slot="primary">
+      <ion-button (click)="goToPage('home')">
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <!-- Add workout and settings buttons at the end -->
+    <ion-buttons slot="end">
+      <ion-button (click)="goToPage('add-workout')">
+        <ion-icon name="add-circle-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="goToPage('settings')">
+        <ion-icon name="settings-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

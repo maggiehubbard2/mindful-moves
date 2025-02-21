@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TimerService } from '../services/timer.service';
+import { WorkoutService } from '../services/workout.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,9 @@ import { TimerService } from '../services/timer.service';
 export class HomePage {
   timerDisplay: string = '00:00';
 
-  constructor(public timerService: TimerService) {
+  constructor(public timerService: TimerService, 
+              public workoutService: WorkoutService
+  ) {
     // Update timer display
     this.timerService.timerDisplay$.subscribe((display) => {
       this.timerDisplay = display;
@@ -25,4 +28,6 @@ export class HomePage {
       this.timerService.startTimer(); // Start the timer
     }
   }
+
+  
 }

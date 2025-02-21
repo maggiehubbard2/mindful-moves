@@ -1,0 +1,10 @@
+ion-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  /* Add padding-top to avoid header overlap */
+.add-workout-content {
+  padding-top: 56px; /* Adjust this value to match the height of your ion-header */
+}

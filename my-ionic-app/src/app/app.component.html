@@ -1,21 +1,22 @@
 <ion-app>
-   
-  <app-menu></app-menu>  <!--menu component  -->
+  <!-- Menu component -->
 
   <!-- Main Content -->
   <div id="main-content">
     <ion-header>
       <ion-toolbar>
-        <!-- Menu Button -->
-        <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
-        </ion-buttons>
-        <ion-title>Mindful Moves </ion-title>
+        <!-- Menu Button -->      
+        <ion-title>Mindful Moves</ion-title>
       </ion-toolbar>
     </ion-header>
 
-    <ion-router-outlet></ion-router-outlet>
+    <app-menu></app-menu> 
+
+    <ion-router-outlet></ion-router-outlet> <!-- Main content from routing -->
   </div>
+
+  <!-- Footer -->
+  <ion-footer>
+    <app-menu></app-menu> 
+  </ion-footer>
 </ion-app>
-
-

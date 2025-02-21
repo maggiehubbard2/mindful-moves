@@ -1,0 +1,35 @@
+ion-icon {
+    color: var(--ion-color-tertiary); //to do: make this dependent on theme set by user
+}
+#main-content {
+    height: 100%;  /* Ensure content takes full height */
+  }
+  
+  .bottom-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+  }
+  
+  .toolbar {
+    display: flex;
+    justify-content: space-between; /* Spaces out the buttons evenly */
+    align-items: center; /* Centers buttons vertically */
+    width: 100%;
+  }
+  
+  ion-buttons {
+    display: flex;
+    justify-content: center; /* Ensures content within buttons is centered */
+  }
+  
+  ion-buttons[slot="start"] {
+    justify-content: flex-start; /* Keeps the heart icon at the start */
+  }
+  
+  ion-buttons[slot="end"] {
+    justify-content: flex-end; /* Keeps the buttons at the end */
+  }
+  

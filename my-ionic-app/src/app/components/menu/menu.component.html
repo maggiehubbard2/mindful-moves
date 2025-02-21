@@ -1,0 +1,31 @@
+<ion-content id="main-content">
+  <!-- Your main content goes here -->
+</ion-content>
+
+<ion-footer class="bottom-footer">
+  <ion-toolbar class="toolbar">
+    <!-- Heart icon for visual appeal -->
+    <ion-buttons slot="start">
+      <ion-button (click)="presentPositiveMessage()">
+        <ion-icon name="heart"></ion-icon>
+      </ion-button>      
+    </ion-buttons> 
+
+    <!-- Home button in the center -->
+    <ion-buttons slot="primary">
+      <ion-button (click)="goToPage('home')">
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <!-- Add workout and settings buttons at the end -->
+    <ion-buttons slot="end">
+      <ion-button (click)="goToPage('add-workout')">
+        <ion-icon name="add-circle-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="goToPage('settings')">
+        <ion-icon name="settings-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

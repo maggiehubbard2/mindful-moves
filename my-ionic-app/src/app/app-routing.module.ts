@@ -8,9 +8,18 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
+  { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomePageModule) },
   {    
     path: 'settings',
     component: SettingsPage,
+  },
+  {
+    path: 'workouts',
+    loadChildren: () => import('./pages/workouts/workouts.module').then( m => m.WorkoutsPageModule)
+  },
+  {
+    path: 'add-workout',
+    loadChildren: () => import('./pages/add-workout/add-workout.module').then( m => m.AddWorkoutPageModule)
   },
 ];
 

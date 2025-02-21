@@ -1,26 +1,42 @@
-<!-- src/app/settings/settings.page.html -->
 <ion-header>
-    <ion-toolbar>
-      <ion-title>Settings</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content class="ion-padding">
-    <ion-item>
-      <ion-label>Work Duration (seconds)</ion-label>
-      <ion-input type="number" [(ngModel)]="timerService.workDuration"></ion-input>
-    </ion-item>
-  
-    <ion-item>
-      <ion-label>Rest Duration (seconds)</ion-label>
-      <ion-input type="number" [(ngModel)]="timerService.restDuration"></ion-input>
-    </ion-item>
-  
-    <ion-item>
-      <ion-label>Number of Rounds</ion-label>
-      <ion-input type="number" [(ngModel)]="timerService.rounds"></ion-input>
-    </ion-item>
-  
-    <ion-button expand="block" (click)="saveSettings()">Save Settings</ion-button>
-  </ion-content>
+  <ion-toolbar>
+    <ion-title class="text-center">Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Settings Card -->
+  <ion-card class="settings-card text-center mx-auto">
+    <ion-card-header>
+      <ion-card-title>Timer Settings</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <!-- Work Duration -->
+      <ion-item>
+        <ion-label position="stacked">Work Duration (seconds)</ion-label>
+        <ion-input type="number" [(ngModel)]="timerService.workDuration"></ion-input>
+      </ion-item>
+
+      <!-- Rest Duration -->
+      <ion-item>
+        <ion-label position="stacked">Rest Duration (seconds)</ion-label>
+        <ion-input type="number" [(ngModel)]="timerService.restDuration"></ion-input>
+      </ion-item>
+
+      <!-- Number of Rounds -->
+      <ion-item>
+        <ion-label position="stacked">Number of Rounds</ion-label>
+        <ion-input type="number" [(ngModel)]="timerService.rounds"></ion-input>
+      </ion-item>
+
+      <!-- Save Button -->
+      <ion-button color="tertiary" expand="block" class="mt-3 save-button" (click)="saveSettings()">
+        <ion-icon name="save" slot="start"></ion-icon>
+        Save Settings
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
   

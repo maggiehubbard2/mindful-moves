@@ -1,0 +1,21 @@
+/* main-content styling */
+#main-content {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Ensure it takes the full height of the screen */
+  overflow: hidden;
+}
+
+/* Ensure router-outlet expands to fill remaining space, and padding-top prevents overlap from ion-header */
+ion-router-outlet {
+  flex-grow: 1; /* Allows router outlet to expand */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding-top: 56px; /* Adjust this value to match the height of your header */
+}
+
+/* Optional: If you have pages that use ion-content, add padding-top for header space */
+ion-content {
+  padding-top: 56px; /* Adjust this value to match the header height */
+}

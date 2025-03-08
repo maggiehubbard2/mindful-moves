@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { TimerService } from '../services/timer.service';
 import { WorkoutService } from '../services/workout.service';
+import { Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +14,9 @@ export class HomePage {
   timerDisplay: string = '00:00';
 
   constructor(public timerService: TimerService, 
-              public workoutService: WorkoutService
+              public workoutService: WorkoutService,
+              private router: Router,
+              private loadingCtrl: LoadingController
   ) {
     // Update timer display
     this.timerService.timerDisplay$.subscribe((display) => {
@@ -27,6 +31,14 @@ export class HomePage {
     } else {
       this.timerService.startTimer(); // Start the timer
     }
+  }
+
+  goToAddWorkout() {
+    this.router.navigate(['/add-workout']); 
+  }
+
+  goToMyWorkouts(){
+    this.workoutService.loadWorkouts()
   }
 
   

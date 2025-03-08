@@ -1,44 +1,36 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage-angular';
 import { Workout } from 'src/app/models/workout/workout.model';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class WorkoutService {
-  private workouts: Workout[] = [];
+  workouts: Workout[] = [];
 
-  constructor(private router: Router) {
-    this.loadWorkouts(); // Load stored workouts when the service initializes
+  constructor(private storage: Storage) {
+    this.initStorage();
   }
 
-  addWorkout(workout: Workout) {
+  async initStorage() {
+    await this.storage.create();
+    this.loadWorkouts();
+  }
+
+  async addWorkout(workout: Workout) {
     this.workouts.push(workout);
-    this.saveWorkouts(); // Save the updated list to localStorage
+    await this.saveWorkouts();
   }
 
-  getWorkouts(): Workout[] {
-    return this.workouts;
+  async saveWorkouts() {
+    await this.storage.set('workouts', this.workouts);
   }
 
-  private saveWorkouts() {
-    localStorage.setItem('workouts', JSON.stringify(this.workouts));
+  async loadWorkouts() {
+    const savedWorkouts = await this.storage.get('workouts');
+    this.workouts = savedWorkouts ? savedWorkouts : [];
   }
 
-  private loadWorkouts() {
-    const storedWorkouts = localStorage.getItem('workouts');
-    if (storedWorkouts) {
-      this.workouts = JSON.parse(storedWorkouts);
-    }
-  }
-
-  goToAddWorkout() {
-    this.router.navigate(['/add-workout']); 
-  }
-
-  goToWorkoutList(){
-    this.router.navigate(['/workouts']); 
-  }
 }
 
 

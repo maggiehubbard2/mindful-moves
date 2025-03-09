@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { TimerService } from '../services/timer.service';
 import { WorkoutService } from '../services/workout.service';
 import { Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, ModalController } from '@ionic/angular';
+import { WorkoutModalComponent } from '../modals/workout-modal/workout-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,8 @@ export class HomePage {
   constructor(public timerService: TimerService, 
               public workoutService: WorkoutService,
               private router: Router,
-              private loadingCtrl: LoadingController
+              private loadingCtrl: LoadingController,
+              private modalController: ModalController
   ) {
     // Update timer display
     this.timerService.timerDisplay$.subscribe((display) => {
@@ -37,8 +39,14 @@ export class HomePage {
     this.router.navigate(['/add-workout']); 
   }
 
-  goToMyWorkouts(){
-    this.workoutService.loadWorkouts()
+  async goToMyWorkouts() {
+    const modal = await this.modalController.create({
+      component: WorkoutModalComponent,
+      canDismiss: true,
+      presentingElement: await this.modalController.getTop(),
+    });
+
+    return await modal.present();
   }
 
   

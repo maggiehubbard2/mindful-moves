@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SettingsPage } from './pages/settings/settings.page';
 import { HomePage } from './home/home.page';
+import { WorkoutModalComponent } from './modals/workout-modal/workout-modal.component';
 
 const routes: Routes = [
   {
@@ -9,6 +10,7 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomePageModule) },
+  { path: 'workout-modal', component: WorkoutModalComponent },
   {    
     path: 'settings',
     component: SettingsPage,

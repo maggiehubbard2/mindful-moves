@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Workout } from 'src/app/models/workout/workout.model';
 import { Exercise } from 'src/app/models/exercise/exercise.model';
 import { Router } from '@angular/router';
+import { WorkoutService } from 'src/app/services/workout.service';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-add-workout',
@@ -11,8 +13,8 @@ import { Router } from '@angular/router';
 })
 export class AddWorkoutPage {
   workout: Workout = {
-    id: '', // Can generate a temporary GUID if needed
-    name: '',
+    id: uuidv4(), // Can generate a temporary GUID if needed
+    name: 'Name',
     rounds: 1,
     roundReset: 30,
     rest: 30,
@@ -21,7 +23,9 @@ export class AddWorkoutPage {
 
   newExercise: Exercise = { id: '', name: '', duration: 30 };
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+    private workoutService: WorkoutService
+  ) {}
 
   addExercise() {
     if (this.newExercise.name.trim() && this.newExercise.duration > 0) {
@@ -37,6 +41,7 @@ export class AddWorkoutPage {
 
   submitWorkout() {
     console.log('Workout Submitted:', this.workout);
+    this.workoutService.addWorkout(this.workout);
     alert('Workout added successfully! (This is just a placeholder)');
     this.router.navigate(['/home']); // Redirect (or change this if needed)
   }
